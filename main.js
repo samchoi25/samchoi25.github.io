@@ -7,6 +7,16 @@ const app = new Vue({
                 src: "./logo.svg"
             }
         },
-        randomQuote: homersimpson[Math.floor(Math.random() * homersimpson.length)]
+        quote: homersimpson[Math.floor(Math.random() * homersimpson.length)]
+    },
+    methods: {
+        randomQuote: function () {
+            const characters = [ homersimpson, bender, jason];
+            const randomCharacter = characters[Math.floor(Math.random() * characters.length)];
+            return randomCharacter[Math.floor(Math.random() * randomCharacter.length)];
+        },
+        setRandomQuote: function (event) {
+            this.quote = this.randomQuote();
+        }
     }
 });
