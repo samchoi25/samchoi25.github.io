@@ -11,7 +11,7 @@ const app = new Vue({
     },
     methods: {
         randomQuote: function () {
-            const characters = [ homersimpson, bender, jason];
+            const characters = [ homersimpson, bender, jason, ronswanson];
             const randomCharacter = characters[Math.floor(Math.random() * characters.length)];
             return randomCharacter[Math.floor(Math.random() * randomCharacter.length)];
         },
