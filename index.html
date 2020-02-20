@@ -6,10 +6,10 @@
     <body>
         <div id="app">
             <header v-on:click="setRandomQuote">
-                <h1>{{header.text}}</h1>
+                <h1 class="neon-flicker">{{header.text}}</h1>
                 <img :src="header.image.src" />
             </header>
-            <p class="random-quote" v-html="quote"></p>
+            <p class="random-quote neon-flicker" v-html="quote"></p>
         </div>
     </body>
 

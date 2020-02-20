@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/samchoi25/samchoi25.github.io#readme",
   "dependencies": {
-    "puppeteer": "^2.1.1"
+    "puppeteer": "^2.1.1",
+    "sass": "^1.25.0"
   }
 }
