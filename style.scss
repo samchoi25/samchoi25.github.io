@@ -1,0 +1,36 @@
+@import './neon';
+@import './navigation';
+
+body {
+    background: #111;
+    a {
+        text-decoration: none;
+        &:visited {
+            color: inherit;
+        }
+    }
+
+    ol, ul {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.container {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+}
+
+#app {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+}
+
+.random-quote {
+    font-size: 3em;
+    text-align: center;
+}
