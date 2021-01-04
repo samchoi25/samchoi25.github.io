@@ -1,5 +1,7 @@
 const app = new Vue({
     el: "#app",
+    mounted:function(){
+    },
     data: {
         header: {
             text: "SC5",
@@ -17,6 +19,19 @@ const app = new Vue({
         },
         setRandomQuote: function (event) {
             this.quote = this.randomQuote();
-        }
+        },
+        quoteOfTheDay: () => {
+            const _self = this;
+            fetch('https://quotes.rest/qod.json', {mode: 'cors'})
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(text) {
+                    _self.quote = `${text.contents.quotes[0].quote} - ${text.contents.quotes[0].author}`;
+                })
+                .catch(function(error) {
+                    console.log('Request failed', error)
+                });
+       }
     }
 });
