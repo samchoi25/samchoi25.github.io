@@ -22,7 +22,7 @@
                 </ol>
             </nav>
             <div id="app">
-                <header v-on:click="quoteOfTheDay">
+                <header v-on:click="setRandomQuote">
                     <svg class="neon-svg-flicker" version="1.0" xmlns="http://www.w3.org/2000/svg"
                         width="144.000000pt" height="164.000000pt" viewBox="0 0 144.000000 164.000000"
                         preserveAspectRatio="xMidYMid meet">
@@ -50,7 +50,7 @@
                         </g>
                     </svg>
                 </header>
-                <p class="random-quote neon-flicker" v-html="quote" v-on:click="setRandomQuote"></p>
+                <p class="random-quote neon-flicker" v-html="quote"></p>
             </div>
             <footer class="footer"></footer>
         </div>
