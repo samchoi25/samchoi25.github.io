@@ -1,43 +1,60 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SC5</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="./styles.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,500&display=swap" rel="stylesheet" />
+        <style>
+            /* Basic styling for header and footer (you can customize this further) */
+            header {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+            }
+    
+            footer {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+    
+            body {
+                margin: 0;
+                padding-bottom: 50px; /* Adjust this value to ensure the footer doesn't overlap content */
+            }
+        </style>
+         <script>
+            window.addEventListener("keydown", e => {
+                document.querySelector('.sprite')?.classList.add('sprite-forward');
+            })
+    
+            window.addEventListener("keyup", e => {
+                document.querySelector('.sprite')?.classList.remove('sprite-forward');
+            });
+    
+        </script>
     </head>
-
-    <script>
-        window.addEventListener("keydown", e => {
-            document.querySelector('.sprite')?.classList.add('sprite-forward');
-        })
-
-        window.addEventListener("keyup", e => {
-            document.querySelector('.sprite')?.classList.remove('sprite-forward');
-        });
-
-    </script>
-
     <body>
-        <div id="page">
-            <main>
-                <span class="sprite sprite-forward" />
-            </main>
-
-            <header>
-                <h1>SC5</h1>
-                <nav>
-                    <ul>
-                        <li>Home</li>
-                        <li>Projects</li>
-                        <li>About</li>
-                    </ul>
-                </nav>
-            </header>
-
-            <footer>
-                <p>Copyright sc5</p>
-            </footer>
-        </div>
+        <header>
+            <h1>Welcome to My Generic Webpage</h1>
+        </header>
+    
+        <main>
+            <span class="sprite sprite-forward" />
+        </main>
+    
+        <footer>
+            <p>Copyright © 2023 sc5 All rights reserved.</p>
+        </footer>
     </body>
 </html>
