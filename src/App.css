@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: 'Roboto'
+}
+
+header {
+  order: -1;
+  margin: 5px;
+}
+
+nav {
+  opacity: 0;
+  margin-left: 25px;
+  transition: opacity .25s;
+  align-items: center;
+}
+
+main:hover + header nav,
+header:hover nav {
+  opacity: 1;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  width: 25%;
+}
+
+nav li {
+  margin-left: 10px;
+}
+
+main {
+  margin-top: 25px;
+  text-align: center;
+}
+

@@ -1,0 +1,79 @@
+$sheet-height: 835px;
+$sheet-width: 833px;
+
+$sprite-height: $sheet-height/12;
+
+.sprite {
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    background-image: url(./sprites.png);
+}
+.sprite-moving {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.sprite-forward {
+    animation-name: forward;
+    animation-timing-function: steps(9);
+}
+
+.sprite-up {
+    animation-name: up;
+    animation-timing-function: steps(6);
+}
+
+.sprite-down {
+    animation-name: down;
+    animation-timing-function: steps(6);
+}
+
+.sprite-jump {
+    animation-name: jump;
+    animation-timing-function: steps(12);
+}
+
+.sprite-left {
+    transform: scaleX(-1);
+}
+
+@keyframes forward {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -630px 0;
+    }
+}
+
+@keyframes up {
+    from {
+        background-position: 0 480px;
+    }
+
+    to {
+        background-position: -420px 480px;
+    }
+}
+
+@keyframes down {
+    from {
+        background-position: -410px 480px;
+    }
+
+    to {
+        background-position: -830px 480px;
+    }
+}
+
+@keyframes jump {
+    from {
+        background-position: 0 1034px;
+    }
+
+    to {
+        background-position: 0 1034px;
+    }
+}
