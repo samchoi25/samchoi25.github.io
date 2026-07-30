@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam Choi — Senior Frontend Engineer</title>
+<meta name="description" content="Sam Choi — Senior Frontend Engineer. 15+ years building production web applications in JavaScript, TypeScript, and React. San Francisco, CA.">
+<link rel="stylesheet" href="assets/grid.css">
+</head>
+<body>
+
+<svg class="icon-defs" aria-hidden="true">
+  <symbol id="icon-about" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+  </symbol>
+  <symbol id="icon-skills" viewBox="0 0 24 24">
+    <path d="M8 7L3 12l5 5"/>
+    <path d="M16 7l5 5-5 5"/>
+  </symbol>
+  <symbol id="icon-experience" viewBox="0 0 24 24">
+    <rect x="3" y="7" width="18" height="13" rx="2"/>
+    <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+    <path d="M3 13h18"/>
+  </symbol>
+  <symbol id="icon-education" viewBox="0 0 24 24">
+    <path d="M12 3l10 5-10 5L2 8z"/>
+    <path d="M6 11v4c0 1.5 3 3 6 3s6-1.5 6-3v-4"/>
+  </symbol>
+  <symbol id="icon-contact" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2"/>
+    <path d="M3 7l9 6 9-6"/>
+  </symbol>
+</svg>
+
+<header class="topbar">
+  <span class="brand">sc5.org</span>
+  <a class="switch-link" href="index.html">← terminal version</a>
+</header>
+
+<main>
+  <div class="grid" role="list">
+
+    <button type="button" class="tile" data-modal="modal-about" aria-haspopup="dialog">
+      <span class="tile-image"><svg class="icon"><use href="#icon-about"></use></svg></span>
+      <span class="tile-title">About</span>
+      <span class="tile-subtitle">Senior Frontend Engineer · San Francisco, CA</span>
+    </button>
+
+    <button type="button" class="tile" data-modal="modal-skills" aria-haspopup="dialog">
+      <span class="tile-image"><svg class="icon"><use href="#icon-skills"></use></svg></span>
+      <span class="tile-title">Skills</span>
+      <span class="tile-subtitle">React · TypeScript · Playwright &amp; more</span>
+    </button>
+
+    <button type="button" class="tile" data-modal="modal-experience" aria-haspopup="dialog">
+      <span class="tile-image"><svg class="icon"><use href="#icon-experience"></use></svg></span>
+      <span class="tile-title">Experience</span>
+      <span class="tile-subtitle">MODE, Apple, Williams-Sonoma &amp; more</span>
+    </button>
+
+    <button type="button" class="tile" data-modal="modal-education" aria-haspopup="dialog">
+      <span class="tile-image"><svg class="icon"><use href="#icon-education"></use></svg></span>
+      <span class="tile-title">Education</span>
+      <span class="tile-subtitle">B.S. Computer Science, UC Santa Barbara</span>
+    </button>
+
+    <button type="button" class="tile" data-modal="modal-contact" aria-haspopup="dialog">
+      <span class="tile-image"><svg class="icon"><use href="#icon-contact"></use></svg></span>
+      <span class="tile-title">Contact</span>
+      <span class="tile-subtitle">LinkedIn &amp; GitHub</span>
+    </button>
+
+  </div>
+</main>
+
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+    <button type="button" class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<template id="modal-about">
+  <h2 id="modal-heading">About</h2>
+  <p>Senior frontend engineer with 15+ years building production web applications in JavaScript, TypeScript, and React, including eight years across Apple's online store. Ships interfaces on top of ML and LLM systems — owned the frontend for Apple's ML-powered product recommendations and built LLM-driven customer workflows at MODE — and works daily in agentic development tooling, including Playwright MCP servers and spec-driven prompting. Known for raising codebase quality through architecture, testing, performance, and accessibility.</p>
+</template>
+
+<template id="modal-skills">
+  <h2 id="modal-heading">Skills</h2>
+  <dl class="skills-list">
+    <dt>Core</dt>
+    <dd>JavaScript (ES6+), TypeScript, React, Redux, Node.js</dd>
+    <dt>AI-Assisted Dev</dt>
+    <dd>Claude, Playwright MCP servers, spec-driven prompting, playbooks</dd>
+    <dt>UI &amp; Design Systems</dt>
+    <dd>Shared component libraries, Material UI, Tailwind CSS, Sass, WCAG accessibility</dd>
+    <dt>Testing &amp; Quality</dt>
+    <dd>Playwright, Jest, Cypress, code review, technical documentation, TDD</dd>
+    <dt>Data &amp; APIs</dt>
+    <dd>REST/JSON, WebSockets, instrumentation and product analytics, MySQL, MongoDB</dd>
+    <dt>Build &amp; Infra</dt>
+    <dd>Vite, Webpack, Git, Jenkins, Linux/Bash, Splunk</dd>
+  </dl>
+</template>
+
+<template id="modal-experience">
+  <h2 id="modal-heading">Experience</h2>
+
+  <article class="job">
+    <h3>MODE, Inc. <span class="job-loc">— San Mateo, CA</span></h3>
+    <p class="job-meta">Senior Software Engineer (UI) | March 2024 – Aug 2026</p>
+    <ul>
+      <li>Owned individual projects end to end as one of three engineers driving UI and UX for BizConsole, MODE's flagship product — visualizing live sensor data from construction sites and factories for 24 enterprise customers.</li>
+      <li>Built charting and geospatial features for the data visualization layer in TypeScript, Vite, Material UI, and Tailwind CSS, rendering large sensor datasets into user-facing dashboards.</li>
+      <li>Shipped a Google Maps React interface for sensor tracking and status alerting, including a client-side authoring tool for geofences and marker points, with alerts triggered by sensor thresholds or geofence breach.</li>
+      <li>Stood up an end-to-end testing platform covering both UI and backend API services, then led team-wide adoption using Playwright MCP servers, playbooks, and spec-driven prompts — reaching 85% code coverage.</li>
+      <li>Formalized an improved release process for a growing engineering team, focused on developer ease of use and eliminating single points of failure.</li>
+      <li>Ran code reviews, accessibility reviews, and peer mentorship across the frontend team.</li>
+      <li>Integrated LLM-powered features into customer workflows across Slack, Teams, and Direct, letting operators act on sensor alerts inside the tools they already used.</li>
+      <li>Instrumented dashboard interactions and used the resulting product data to prioritize feature work and retire unused surfaces.</li>
+      <li>Worked cross-functionally with Design, Backend, and Product counterparts in Japan, translating ambiguous requirements into shippable technical designs.</li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <h3>Apple Online Store <span class="job-loc">— Sunnyvale, CA</span></h3>
+    <p class="job-meta">Front End UI Engineer [Red Oak Technologies Contract] | March 2020 – September 2023</p>
+    <ul>
+      <li>Migrated Apple Watch, iPad, and Mac flagship product pages from a legacy stack to React, Redux, TypeScript, Node, and Sass — cutting page weight 30% and improving browser performance 25%.</li>
+      <li>Owned end-to-end UI for Shop By Availability, an ML-powered product recommendation experience across the Apple Watch, iPhone, and iPad lines: consumed model output for display and instrumented user interactions back to the ML models via API.</li>
+      <li>Led the Apple Watch product page redesign from wireframes, coordinating 5–7 frontend engineers on a globally distributed cross-functional team.</li>
+      <li>Contributed reusable components — date pickers, alert banners, navigation elements — to Apple's company-wide component library.</li>
+      <li>Owned Apple Watch Design Studio and Apple Watch Bands: new UI features, accessibility compliance, and production bug support.</li>
+      <li>Audited and remediated web accessibility defects across Apple Store domains.</li>
+      <li>Built Node.js testing and build scripts for CI/CD and non-production pipelines with Jenkins and Splunk.</li>
+      <li>Maintained shared repositories through code review, documentation, working local demos, and versioned NPM releases.</li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <h3>Williams-Sonoma <span class="job-loc">— San Francisco, CA</span></h3>
+    <p class="job-meta">Front End Engineer [TekSystems Contract] | September 2019 – March 2020</p>
+    <ul>
+      <li>Built customer-facing Gift Registry and Product Information Page features in TypeScript and React, scaled across six e-commerce domains.</li>
+      <li>Migrated a legacy Backbone.js codebase to a Vue.js and Node.js stack.</li>
+      <li>Raised test coverage 30% with Jest and set code quality standards for the frontend team.</li>
+      <li>Modernized legacy UI components to meet current web accessibility standards.</li>
+      <li>Presented UI demos to executive leadership.</li>
+    </ul>
+  </article>
+
+  <article class="job">
+    <h3>Apple Online Store <span class="job-loc">— Sunnyvale, CA</span></h3>
+    <p class="job-meta">Front End UI Engineer [TekSystems Contract] | March 2015 – September 2019</p>
+    <ul>
+      <li>Delivered production frontend features across iPad, Apple Watch, Accessories, Checkout, Refurbished Products, and iPhone Trade-in.</li>
+      <li>Implemented the initial React, TypeScript, Redux, Node, and Sass stack from wireframes and optimized Webpack builds.</li>
+      <li>Modernized legacy CanJS components onto an internal ES6 framework and migrated legacy CSS to SCSS.</li>
+      <li>Improved code quality and test coverage with Jasmine, and reviewed pull requests across shared group repositories.</li>
+    </ul>
+  </article>
+
+  <h3 class="earlier-heading">Earlier Experience</h3>
+
+  <article class="job job-condensed">
+    <h3>One Kings Lane <span class="job-loc">— Software Engineer, San Francisco, CA</span></h3>
+    <p class="job-meta">2011 – 2014</p>
+    <p>Migrated a legacy PHP e-commerce codebase to Ruby on Rails. Built customer referral, loyalty shipping, and promo code redemption features, and maintained the shopping cart and checkout API for the iOS app.</p>
+  </article>
+
+  <article class="job job-condensed">
+    <h3>Exygy Web Apps <span class="job-loc">— Web Developer, San Francisco, CA</span></h3>
+    <p class="job-meta">2009 – 2011</p>
+    <p>Built custom WordPress solutions and developed client web applications on the CodeIgniter and CakePHP frameworks.</p>
+  </article>
+</template>
+
+<template id="modal-education">
+  <h2 id="modal-heading">Education</h2>
+  <p><strong>B.S. Computer Science</strong><br>University of California, Santa Barbara</p>
+</template>
+
+<template id="modal-contact">
+  <h2 id="modal-heading">Contact</h2>
+  <ul class="contact-list">
+    <li>Location: San Francisco, CA</li>
+    <li>LinkedIn: <a href="https://linkedin.com/in/samuel-choi-61ab7830" target="_blank" rel="noopener">linkedin.com/in/samuel-choi-61ab7830</a></li>
+    <li>GitHub: <a href="https://github.com/samchoi25" target="_blank" rel="noopener">github.com/samchoi25</a></li>
+  </ul>
+</template>
+
+<script src="assets/grid.js"></script>
+</body>
+</html>
