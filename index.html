@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div class="terminal">
+<div class="terminal jshidden" id="terminal-app">
   <div class="terminal-bar">
     <span class="dot dot-red" aria-hidden="true"></span>
     <span class="dot dot-yellow" aria-hidden="true"></span>
@@ -17,144 +17,129 @@
     <span class="terminal-title">visitor@sc5:~ — -zsh — 80x24</span>
   </div>
 
-  <div class="terminal-body">
+  <div class="terminal-body" id="terminal-body">
+    <p class="prompt help-text">Pick a command below or type your own. Tab autocompletes, Tab twice lists options, ↑ recalls history.</p>
 
-    <header class="block" id="top">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">whoami</span></p>
-      <pre class="output" aria-hidden="true"></pre>
-      <p class="sr-only" data-source>Sam Choi
-Senior Frontend Engineer
-San Francisco, CA</p>
-    </header>
+    <div id="output" class="term-output"></div>
 
-    <nav class="block nav" aria-label="Sections">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">ls</span></p>
-      <div class="nav-links">
-        <a href="#about">about.txt</a>
-        <a href="#skills">skills.txt</a>
-        <a href="#experience">experience.log</a>
-        <a href="#education">education.txt</a>
-        <a href="#contact">contact.txt</a>
-      </div>
-    </nav>
+    <div class="term-input-line">
+      <span class="prompt-label">visitor@sc5:~$</span>
+      <input type="text" id="term-input" class="term-input" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Terminal command input">
+    </div>
 
-    <section class="block" id="about">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat about.txt</span></p>
-      <pre class="output" aria-hidden="true"></pre>
-      <p class="sr-only" data-source>Senior frontend engineer with 15+ years building production web applications in JavaScript, TypeScript, and React, including eight years across Apple's online store. Ships interfaces on top of ML and LLM systems — owned the frontend for Apple's ML-powered product recommendations and built LLM-driven customer workflows at MODE — and works daily in agentic development tooling, including Playwright MCP servers and spec-driven prompting. Known for raising codebase quality through architecture, testing, performance, and accessibility.</p>
-    </section>
+    <div id="chips" class="chips" aria-label="Available commands"></div>
 
-    <section class="block" id="skills">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat skills.txt</span></p>
-      <pre class="output" aria-hidden="true"></pre>
-      <p class="sr-only" data-source>Core: JavaScript (ES6+), TypeScript, React, Redux, Node.js
-AI-Assisted Dev: Claude, Playwright MCP servers, spec-driven prompting, playbooks
-UI & Design Systems: Shared component libraries, Material UI, Tailwind CSS, Sass, WCAG accessibility
-Testing & Quality: Playwright, Jest, Cypress, code review, technical documentation, TDD
-Data & APIs: REST/JSON, WebSockets, instrumentation and product analytics, MySQL, MongoDB
-Build & Infra: Vite, Webpack, Git, Jenkins, Linux/Bash, Splunk</p>
-    </section>
-
-    <section class="block" id="experience">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat experience.log</span></p>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>MODE, Inc. — San Mateo, CA
-Senior Software Engineer (UI) | March 2024 – Aug 2026
-
-- Owned individual projects end to end as one of three engineers driving UI and UX for BizConsole, MODE's flagship product — visualizing live sensor data from construction sites and factories for 24 enterprise customers.
-- Built charting and geospatial features for the data visualization layer in TypeScript, Vite, Material UI, and Tailwind CSS, rendering large sensor datasets into user-facing dashboards.
-- Shipped a Google Maps React interface for sensor tracking and status alerting, including a client-side authoring tool for geofences and marker points, with alerts triggered by sensor thresholds or geofence breach.
-- Stood up an end-to-end testing platform covering both UI and backend API services, then led team-wide adoption using Playwright MCP servers, playbooks, and spec-driven prompts — reaching 85% code coverage.
-- Formalized an improved release process for a growing engineering team, focused on developer ease of use and eliminating single points of failure.
-- Ran code reviews, accessibility reviews, and peer mentorship across the frontend team.
-- Integrated LLM-powered features into customer workflows across Slack, Teams, and Direct, letting operators act on sensor alerts inside the tools they already used.
-- Instrumented dashboard interactions and used the resulting product data to prioritize feature work and retire unused surfaces.
-- Worked cross-functionally with Design, Backend, and Product counterparts in Japan, translating ambiguous requirements into shippable technical designs.</p>
-      </div>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>Apple Online Store — Sunnyvale, CA
-Front End UI Engineer [Red Oak Technologies Contract] | March 2020 – September 2023
-
-- Migrated Apple Watch, iPad, and Mac flagship product pages from a legacy stack to React, Redux, TypeScript, Node, and Sass — cutting page weight 30% and improving browser performance 25%.
-- Owned end-to-end UI for Shop By Availability, an ML-powered product recommendation experience across the Apple Watch, iPhone, and iPad lines: consumed model output for display and instrumented user interactions back to the ML models via API.
-- Led the Apple Watch product page redesign from wireframes, coordinating 5–7 frontend engineers on a globally distributed cross-functional team.
-- Contributed reusable components — date pickers, alert banners, navigation elements — to Apple's company-wide component library.
-- Owned Apple Watch Design Studio and Apple Watch Bands: new UI features, accessibility compliance, and production bug support.
-- Audited and remediated web accessibility defects across Apple Store domains.
-- Built Node.js testing and build scripts for CI/CD and non-production pipelines with Jenkins and Splunk.
-- Maintained shared repositories through code review, documentation, working local demos, and versioned NPM releases.</p>
-      </div>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>Williams-Sonoma — San Francisco, CA
-Front End Engineer [TekSystems Contract] | September 2019 – March 2020
-
-- Built customer-facing Gift Registry and Product Information Page features in TypeScript and React, scaled across six e-commerce domains.
-- Migrated a legacy Backbone.js codebase to a Vue.js and Node.js stack.
-- Raised test coverage 30% with Jest and set code quality standards for the frontend team.
-- Modernized legacy UI components to meet current web accessibility standards.
-- Presented UI demos to executive leadership.</p>
-      </div>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>Apple Online Store — Sunnyvale, CA
-Front End UI Engineer [TekSystems Contract] | March 2015 – September 2019
-
-- Delivered production frontend features across iPad, Apple Watch, Accessories, Checkout, Refurbished Products, and iPhone Trade-in.
-- Implemented the initial React, TypeScript, Redux, Node, and Sass stack from wireframes and optimized Webpack builds.
-- Modernized legacy CanJS components onto an internal ES6 framework and migrated legacy CSS to SCSS.
-- Improved code quality and test coverage with Jasmine, and reviewed pull requests across shared group repositories.</p>
-      </div>
-
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat earlier_experience.log</span></p>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>One Kings Lane — Software Engineer, San Francisco, CA | 2011 – 2014
-
-Migrated a legacy PHP e-commerce codebase to Ruby on Rails. Built customer referral, loyalty shipping, and promo code redemption features, and maintained the shopping cart and checkout API for the iOS app.</p>
-      </div>
-
-      <div class="job">
-        <pre class="output" aria-hidden="true"></pre>
-        <p class="sr-only" data-source>Exygy Web Apps — Web Developer, San Francisco, CA | 2009 – 2011
-
-Built custom WordPress solutions and developed client web applications on the CodeIgniter and CakePHP frameworks.</p>
-      </div>
-    </section>
-
-    <section class="block" id="education">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat education.txt</span></p>
-      <pre class="output" aria-hidden="true"></pre>
-      <p class="sr-only" data-source>B.S. Computer Science
-University of California, Santa Barbara</p>
-    </section>
-
-    <section class="block" id="contact">
-      <p class="prompt">visitor@sc5:~$ <span class="cmd">cat contact.txt</span></p>
-      <pre class="output" aria-hidden="true"></pre>
-      <p class="sr-only" data-source>location: San Francisco, CA
-linkedin: linkedin.com/in/samuel-choi-61ab7830
-github: github.com/samchoi25</p>
-      <p class="contact-links">
-        <a href="https://linkedin.com/in/samuel-choi-61ab7830" target="_blank" rel="noopener">linkedin.com/in/samuel-choi-61ab7830</a>
-        &nbsp;·&nbsp;
-        <a href="https://github.com/samchoi25" target="_blank" rel="noopener">github.com/samchoi25</a>
-      </p>
-    </section>
-
-    <footer class="block">
-      <p class="prompt prompt-final">visitor@sc5:~$ <span class="cursor" aria-hidden="true"></span></p>
-    </footer>
-
+    <div id="sr-announcer" class="sr-only" aria-live="polite"></div>
   </div>
 </div>
+
+<script>document.getElementById('terminal-app').classList.remove('jshidden');</script>
+
+<noscript>
+  <div class="resume-fallback">
+    <h1>Sam Choi</h1>
+    <p class="tagline">Senior Frontend Engineer · San Francisco, CA</p>
+
+    <h2>About</h2>
+    <p>Senior frontend engineer with 15+ years building production web applications in JavaScript, TypeScript, and React, including eight years across Apple's online store. Ships interfaces on top of ML and LLM systems — owned the frontend for Apple's ML-powered product recommendations and built LLM-driven customer workflows at MODE — and works daily in agentic development tooling, including Playwright MCP servers and spec-driven prompting. Known for raising codebase quality through architecture, testing, performance, and accessibility.</p>
+
+    <h2>Skills</h2>
+    <dl>
+      <dt>Core</dt>
+      <dd>JavaScript (ES6+), TypeScript, React, Redux, Node.js</dd>
+      <dt>AI-Assisted Dev</dt>
+      <dd>Claude, Playwright MCP servers, spec-driven prompting, playbooks</dd>
+      <dt>UI &amp; Design Systems</dt>
+      <dd>Shared component libraries, Material UI, Tailwind CSS, Sass, WCAG accessibility</dd>
+      <dt>Testing &amp; Quality</dt>
+      <dd>Playwright, Jest, Cypress, code review, technical documentation, TDD</dd>
+      <dt>Data &amp; APIs</dt>
+      <dd>REST/JSON, WebSockets, instrumentation and product analytics, MySQL, MongoDB</dd>
+      <dt>Build &amp; Infra</dt>
+      <dd>Vite, Webpack, Git, Jenkins, Linux/Bash, Splunk</dd>
+    </dl>
+
+    <h2>Experience</h2>
+
+    <article>
+      <h3>MODE, Inc. — San Mateo, CA</h3>
+      <p class="meta">Senior Software Engineer (UI) | March 2024 – Aug 2026</p>
+      <ul>
+        <li>Owned individual projects end to end as one of three engineers driving UI and UX for BizConsole, MODE's flagship product — visualizing live sensor data from construction sites and factories for 24 enterprise customers.</li>
+        <li>Built charting and geospatial features for the data visualization layer in TypeScript, Vite, Material UI, and Tailwind CSS, rendering large sensor datasets into user-facing dashboards.</li>
+        <li>Shipped a Google Maps React interface for sensor tracking and status alerting, including a client-side authoring tool for geofences and marker points, with alerts triggered by sensor thresholds or geofence breach.</li>
+        <li>Stood up an end-to-end testing platform covering both UI and backend API services, then led team-wide adoption using Playwright MCP servers, playbooks, and spec-driven prompts — reaching 85% code coverage.</li>
+        <li>Formalized an improved release process for a growing engineering team, focused on developer ease of use and eliminating single points of failure.</li>
+        <li>Ran code reviews, accessibility reviews, and peer mentorship across the frontend team.</li>
+        <li>Integrated LLM-powered features into customer workflows across Slack, Teams, and Direct, letting operators act on sensor alerts inside the tools they already used.</li>
+        <li>Instrumented dashboard interactions and used the resulting product data to prioritize feature work and retire unused surfaces.</li>
+        <li>Worked cross-functionally with Design, Backend, and Product counterparts in Japan, translating ambiguous requirements into shippable technical designs.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Apple Online Store — Sunnyvale, CA</h3>
+      <p class="meta">Front End UI Engineer [Red Oak Technologies Contract] | March 2020 – September 2023</p>
+      <ul>
+        <li>Migrated Apple Watch, iPad, and Mac flagship product pages from a legacy stack to React, Redux, TypeScript, Node, and Sass — cutting page weight 30% and improving browser performance 25%.</li>
+        <li>Owned end-to-end UI for Shop By Availability, an ML-powered product recommendation experience across the Apple Watch, iPhone, and iPad lines: consumed model output for display and instrumented user interactions back to the ML models via API.</li>
+        <li>Led the Apple Watch product page redesign from wireframes, coordinating 5–7 frontend engineers on a globally distributed cross-functional team.</li>
+        <li>Contributed reusable components — date pickers, alert banners, navigation elements — to Apple's company-wide component library.</li>
+        <li>Owned Apple Watch Design Studio and Apple Watch Bands: new UI features, accessibility compliance, and production bug support.</li>
+        <li>Audited and remediated web accessibility defects across Apple Store domains.</li>
+        <li>Built Node.js testing and build scripts for CI/CD and non-production pipelines with Jenkins and Splunk.</li>
+        <li>Maintained shared repositories through code review, documentation, working local demos, and versioned NPM releases.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Williams-Sonoma — San Francisco, CA</h3>
+      <p class="meta">Front End Engineer [TekSystems Contract] | September 2019 – March 2020</p>
+      <ul>
+        <li>Built customer-facing Gift Registry and Product Information Page features in TypeScript and React, scaled across six e-commerce domains.</li>
+        <li>Migrated a legacy Backbone.js codebase to a Vue.js and Node.js stack.</li>
+        <li>Raised test coverage 30% with Jest and set code quality standards for the frontend team.</li>
+        <li>Modernized legacy UI components to meet current web accessibility standards.</li>
+        <li>Presented UI demos to executive leadership.</li>
+      </ul>
+    </article>
+
+    <article>
+      <h3>Apple Online Store — Sunnyvale, CA</h3>
+      <p class="meta">Front End UI Engineer [TekSystems Contract] | March 2015 – September 2019</p>
+      <ul>
+        <li>Delivered production frontend features across iPad, Apple Watch, Accessories, Checkout, Refurbished Products, and iPhone Trade-in.</li>
+        <li>Implemented the initial React, TypeScript, Redux, Node, and Sass stack from wireframes and optimized Webpack builds.</li>
+        <li>Modernized legacy CanJS components onto an internal ES6 framework and migrated legacy CSS to SCSS.</li>
+        <li>Improved code quality and test coverage with Jasmine, and reviewed pull requests across shared group repositories.</li>
+      </ul>
+    </article>
+
+    <h3>Earlier Experience</h3>
+
+    <article>
+      <h4>One Kings Lane — Software Engineer, San Francisco, CA</h4>
+      <p class="meta">2011 – 2014</p>
+      <p>Migrated a legacy PHP e-commerce codebase to Ruby on Rails. Built customer referral, loyalty shipping, and promo code redemption features, and maintained the shopping cart and checkout API for the iOS app.</p>
+    </article>
+
+    <article>
+      <h4>Exygy Web Apps — Web Developer, San Francisco, CA</h4>
+      <p class="meta">2009 – 2011</p>
+      <p>Built custom WordPress solutions and developed client web applications on the CodeIgniter and CakePHP frameworks.</p>
+    </article>
+
+    <h2>Education</h2>
+    <p><strong>B.S. Computer Science</strong><br>University of California, Santa Barbara</p>
+
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>Location: San Francisco, CA</li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/samuel-choi-61ab7830">linkedin.com/in/samuel-choi-61ab7830</a></li>
+      <li>GitHub: <a href="https://github.com/samchoi25">github.com/samchoi25</a></li>
+    </ul>
+  </div>
+</noscript>
 
 <script src="assets/script.js"></script>
 </body>

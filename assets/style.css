@@ -47,6 +47,10 @@ body {
   border: 1px solid var(--rule);
 }
 
+.jshidden {
+  display: none;
+}
+
 .terminal-bar {
   display: flex;
   align-items: center;
@@ -74,27 +78,17 @@ body {
 
 .terminal-body {
   padding: clamp(1rem, 0.6rem + 2vw, 3rem);
+  min-height: 70vh;
 }
 
-.block {
-  margin-bottom: clamp(1.5rem, 1rem + 2vw, 3rem);
-  padding-bottom: clamp(1.5rem, 1rem + 2vw, 3rem);
-  border-bottom: 1px dashed var(--rule);
-}
-
-.block:last-child,
-footer.block {
-  border-bottom: none;
+.help-text {
+  color: var(--muted);
+  margin: 0 0 1.25rem;
 }
 
 .prompt {
   margin: 0 0 0.5rem 0;
   color: var(--muted);
-}
-
-.prompt .cmd,
-.prompt .cmd ~ * {
-  color: var(--fg);
 }
 
 .cmd {
@@ -107,7 +101,7 @@ footer.block {
   font-size: 1em;
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin: 0;
+  margin: 0 0 1.25rem;
   min-height: 1.5em;
 }
 
@@ -121,19 +115,6 @@ footer.block {
   50% { opacity: 0; }
 }
 
-.job {
-  margin-top: clamp(1rem, 0.7rem + 1vw, 1.75rem);
-}
-.job:first-of-type {
-  margin-top: 0;
-}
-
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-}
-
 a {
   color: var(--link);
 }
@@ -145,21 +126,71 @@ a:focus {
   text-decoration: underline wavy;
 }
 
-.contact-links {
-  margin-top: 0.75rem;
+/* Live terminal input line */
+
+.term-input-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6ch;
 }
 
-.cursor {
-  display: inline-block;
-  width: 0.6em;
-  height: 1.1em;
-  background: var(--fg);
-  vertical-align: text-bottom;
-  animation: blink 1s steps(1) infinite;
+.prompt-label {
+  color: var(--muted);
+  white-space: nowrap;
 }
 
-.prompt-final {
-  margin-bottom: 0;
+.term-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--fg);
+  font: inherit;
+  caret-color: var(--accent);
+  padding: 0;
+  margin: 0;
+}
+
+.term-input:disabled {
+  opacity: 0.5;
+}
+
+/* Command chips, shown only while the prompt is empty */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.chips[hidden] {
+  display: none;
+}
+
+/* Chip row emitted inline by `ls`, sits in the output flow */
+.chips-inline {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.chip {
+  font: inherit;
+  color: var(--muted);
+  background: transparent;
+  border: 1px dashed var(--rule);
+  border-radius: 999px;
+  padding: 0.15rem 0.75rem;
+  cursor: pointer;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+  border-style: solid;
+  outline: none;
 }
 
 .sr-only {
@@ -176,5 +207,64 @@ a:focus {
 
 @media (max-width: 600px) {
   .terminal-title { display: none; }
-  .nav-links { gap: 0.25rem 0.85rem; }
+}
+
+/* No-JS fallback */
+
+.resume-fallback {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 1rem + 2vw, 3rem);
+}
+
+.resume-fallback h1 {
+  margin-bottom: 0.15rem;
+}
+
+.resume-fallback .tagline {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.resume-fallback h2 {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.25rem;
+  margin-top: 2.25rem;
+}
+
+.resume-fallback h3 {
+  margin-bottom: 0.15rem;
+}
+
+.resume-fallback h4 {
+  margin-bottom: 0.15rem;
+}
+
+.resume-fallback .meta {
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  font-size: 0.9em;
+}
+
+.resume-fallback ul {
+  padding-left: 1.25rem;
+}
+
+.resume-fallback li {
+  margin-bottom: 0.4rem;
+}
+
+.resume-fallback dt {
+  font-weight: bold;
+  margin-top: 0.75rem;
+}
+
+.resume-fallback dd {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+}
+
+.resume-fallback .contact-list {
+  list-style: none;
+  padding: 0;
 }
